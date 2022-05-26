@@ -857,9 +857,9 @@
     
 ; Offsets for the screw inserts dependent on thumb-style & inner-column
 (when inner-column
-    (def screw-offset-bl [14 8 0])
+    (def screw-offset-bl [-2 18 0])
     (def screw-offset-tm [9.5 -4.5 0])
-    (def screw-offset-bm [-1 -7 0]))
+    (def screw-offset-bm [-8 9 0]))
 (when (false? inner-column)
     (def screw-offset-bl [-18 23 0])
     (def screw-offset-tm [9.5 -4.5 0])
