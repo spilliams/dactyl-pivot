@@ -15,20 +15,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (def nrows 5)
-(def ncols 7)
+(def ncols 6)
 
 (def α (/ π 10))                        ; curvature of the columns
 (def β (/ π 32))                        ; curvature of the rows
-(def centerrow (- nrows 2))             ; controls front-back tilt
-(def centercol 4)                       ; controls left-right tilt / tenting (higher number is more tenting)
+(def centerrow (- nrows 3))             ; controls front-back tilt
+(def centercol 3)                       ; controls left-right tilt / tenting (higher number is more tenting)
 (def tenting-angle (/ π 20))            ; or, change this for more precise tenting control
 
-(def pinky-15u true)                   ; controls whether the outer column uses 1.5u keys
+(def pinky-15u false)                   ; controls whether the outer column uses 1.5u keys
 (def first-15u-row 0)                   ; controls which should be the first row to have 1.5u keys on the outer column
 (def last-15u-row 3)                    ; controls which should be the last row to have 1.5u keys on the outer column
 
 (def extra-row true)                   ; adds an extra bottom row to the outer columns
-(def inner-column true)                ; adds an extra inner column (two less rows than nrows)
+(def inner-column false)                ; adds an extra inner column (two less rows than nrows)
 
 (def column-style :standard)
 
@@ -48,7 +48,7 @@
 
 (def keyboard-z-offset 9)               ; controls overall height; original=9 with centercol=3; use 16 for centercol=2
 
-(def extra-width 3)                   ; extra space between the base of keys; original= 2
+(def extra-width 5)                   ; extra space between the base of keys; original= 2
 (def extra-height 0.5)                  ; original= 0.5
 
 (def wall-z-offset -8)                 ; length of the first downward-sloping part of the wall (negative)
@@ -132,9 +132,9 @@
 ;; SA Keycaps ;;
 ;;;;;;;;;;;;;;;;
 
-(def sa-length 18.25)
-(def sa-double-length 37.5)
-(def sa-cap {1 (let [bl2 (/ 18.5 2)
+;; (def sa-length 30)
+;; (def sa-double-length 37.5)
+(def sa-cap {1 (let [bl2 (/ 18.58 2)
                      m (/ 17 2)
                      key-cap (hull (->> (polygon [[bl2 bl2] [bl2 (- bl2)] [(- bl2) (- bl2)] [(- bl2) bl2]])
                                         (extrude-linear {:height 0.1 :twist 0 :convexity 0})
@@ -148,17 +148,17 @@
                  (->> key-cap
                       (translate [0 0 (+ 5 plate-thickness)])
                       (color [220/255 163/255 163/255 1])))
-             2 (let [bl2 sa-length
-                     bw2 (/ 18.25 2)
-                     key-cap (hull (->> (polygon [[bw2 bl2] [bw2 (- bl2)] [(- bw2) (- bl2)] [(- bw2) bl2]])
-                                        (extrude-linear {:height 0.1 :twist 0 :convexity 0})
-                                        (translate [0 0 0.05]))
-                                   (->> (polygon [[6 16] [6 -16] [-6 -16] [-6 16]])
-                                        (extrude-linear {:height 0.1 :twist 0 :convexity 0})
-                                        (translate [0 0 12])))]
-                 (->> key-cap
-                      (translate [0 0 (+ 5 plate-thickness)])
-                      (color [127/255 159/255 127/255 1])))
+            ;;  2 (let [bl2 sa-length
+            ;;          bw2 (/ 18.25 2)
+            ;;          key-cap (hull (->> (polygon [[bw2 bl2] [bw2 (- bl2)] [(- bw2) (- bl2)] [(- bw2) bl2]])
+            ;;                             (extrude-linear {:height 0.1 :twist 0 :convexity 0})
+            ;;                             (translate [0 0 0.05]))
+            ;;                        (->> (polygon [[6 16] [6 -16] [-6 -16] [-6 16]])
+            ;;                             (extrude-linear {:height 0.1 :twist 0 :convexity 0})
+            ;;                             (translate [0 0 12])))]
+            ;;      (->> key-cap
+            ;;           (translate [0 0 (+ 5 plate-thickness)])
+            ;;           (color [127/255 159/255 127/255 1])))
              1.5 (let [bl2 (/ 18.25 2)
                        bw2 (/ 27.94 2)
                        key-cap (hull (->> (polygon [[bw2 bl2] [bw2 (- bl2)] [(- bw2) (- bl2)] [(- bw2) bl2]])
